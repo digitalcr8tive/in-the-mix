@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "../assetPath";
 
 export function SiteFooter() {
   return (
@@ -7,7 +8,7 @@ export function SiteFooter() {
       <Link className="logo logo-small" href="/" aria-label="In The Mix home">
         <Image
           className="logo-mark"
-          src="/images/instagram/in-the-mix-logo.jpg"
+          src={assetPath("/images/instagram/in-the-mix-logo.jpg")}
           alt=""
           width={56}
           height={56}

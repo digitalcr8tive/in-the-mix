@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "../assetPath";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -13,7 +14,7 @@ export function SiteHeader() {
       <Link className="logo" href="/" aria-label="In The Mix home">
         <Image
           className="logo-mark"
-          src="/images/instagram/in-the-mix-logo.jpg"
+          src={assetPath("/images/instagram/in-the-mix-logo.jpg")}
           alt=""
           width={72}
           height={72}

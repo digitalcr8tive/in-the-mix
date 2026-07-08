@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GlassWater, Martini, Sparkles, UsersRound } from "lucide-react";
+import { assetPath } from "../assetPath";
 import { eventDetails, serviceNotes, servicePackages, services } from "../content";
 import { BookingForm } from "./BookingForm";
 
@@ -23,7 +24,7 @@ export function HeroSection() {
       </div>
       <div className="hero-media" aria-label="In The Mix event bar">
         <Image
-          src="/images/instagram/exact-posts/8ca546e9c1d52873.jpg"
+          src={assetPath("/images/instagram/exact-posts/8ca546e9c1d52873.jpg")}
           alt="In The Mix bartenders standing behind a white event bar"
           fill
           priority
@@ -103,7 +104,7 @@ export function AboutSection() {
     <section className="about" id="about">
       <div className="about-image">
         <Image
-          src="/images/instagram/exact-posts/476c948abc535f94.jpg"
+          src={assetPath("/images/instagram/exact-posts/476c948abc535f94.jpg")}
           alt="In The Mix bartenders serving a guest at a white event bar"
           fill
           sizes="(max-width: 900px) 90vw, 48vw"
@@ -148,7 +149,7 @@ export function EventDetailsSection() {
         {eventDetails.map((item) => (
           <figure key={item.label}>
             <Image
-              src={item.src}
+              src={assetPath(item.src)}
               alt={item.alt}
               fill
               sizes="(max-width: 900px) 90vw, 30vw"
