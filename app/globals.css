@@ -516,9 +516,9 @@ h3 {
 
 .about-image img {
   object-fit: cover;
-  object-position: 72% center;
+  object-position: 86% center;
   filter: saturate(1.02) contrast(1.02);
-  transform: scale(1.08);
+  transform: scale(1.03);
 }
 
 .about-copy {
