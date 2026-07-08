@@ -146,6 +146,95 @@ img {
   transform: scaleX(1);
 }
 
+.header-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.mobile-menu {
+  display: none;
+  position: relative;
+}
+
+.mobile-menu summary {
+  display: inline-flex;
+  min-height: 3.55rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid var(--black);
+  background: var(--paper);
+  color: var(--black);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  list-style: none;
+  text-transform: uppercase;
+  transition:
+    background 180ms ease-out,
+    border-color 180ms ease-out,
+    color 180ms ease-out;
+}
+
+.mobile-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-menu summary::after {
+  content: "";
+  width: 0.52rem;
+  height: 0.52rem;
+  margin-left: 0.65rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-0.16rem) rotate(45deg);
+  transition: transform 180ms ease-out;
+}
+
+.mobile-menu[open] summary {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+.mobile-menu[open] summary::after {
+  transform: translateY(0.12rem) rotate(225deg);
+}
+
+.mobile-nav {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  right: 0;
+  z-index: 30;
+  display: grid;
+  min-width: min(16rem, calc(100vw - 2rem));
+  border: 1px solid var(--black);
+  background: var(--paper);
+}
+
+.mobile-nav a {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--black);
+  font-size: 0.95rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: 0;
+}
+
+.mobile-nav a:hover {
+  background: var(--black);
+  color: var(--paper);
+}
+
 .button {
   display: inline-flex;
   min-height: 3.55rem;
@@ -805,11 +894,11 @@ textarea {
   }
 
   .nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 0.25rem;
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
   }
 
   .hero,
@@ -872,6 +961,12 @@ textarea {
   }
 
   .button-outline {
+    min-height: 2.8rem;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .mobile-menu summary {
     min-height: 2.8rem;
     padding: 0.7rem 0.85rem;
     font-size: 0.78rem;

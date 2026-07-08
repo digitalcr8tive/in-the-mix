@@ -31,9 +31,23 @@ export function SiteHeader() {
           </Link>
         ))}
       </nav>
-      <Link className="button button-outline" href="/contact">
-        Book now
-      </Link>
+      <div className="header-actions">
+        <details className="mobile-menu">
+          <summary aria-label="Open navigation menu">
+            <span>Menu</span>
+          </summary>
+          <nav className="mobile-nav" aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <Link href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </details>
+        <Link className="button button-outline" href="/contact">
+          Book now
+        </Link>
+      </div>
     </header>
   );
 }
