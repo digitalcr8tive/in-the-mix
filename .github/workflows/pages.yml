@@ -35,6 +35,8 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BOOKING_ENDPOINT: ${{ vars.BOOKING_ENDPOINT }}
 
       - name: Add Pages asset marker
         run: touch out/.nojekyll

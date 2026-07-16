@@ -1,0 +1,9 @@
+{
+  "name": "in-the-mix-booking-relay",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-16",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://digitalcr8tive.github.io",
+    "BOOKINGS_TO_EMAIL": "Info.inthemixbartending@gmail.com"
+  }
+}

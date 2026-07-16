@@ -3,4 +3,6 @@ node_modules
 out
 .env
 .env*.local
+workers/booking-relay/.dev.vars
+workers/booking-relay/.wrangler/
 npm-debug.log*

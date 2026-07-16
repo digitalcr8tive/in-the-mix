@@ -5,6 +5,10 @@ import { Send } from "lucide-react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+const bookingEndpoint =
+  process.env.NEXT_PUBLIC_BOOKING_ENDPOINT ||
+  (process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "" : "/api/bookings");
+
 export function BookingForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
@@ -24,13 +28,21 @@ export function BookingForm() {
       return;
     }
 
+    if (!bookingEndpoint) {
+      setStatus("error");
+      setMessage(
+        "Online booking is being connected. Please contact In The Mix directly in the meantime."
+      );
+      return;
+    }
+
     const payload = {
       ...Object.fromEntries(formData.entries()),
       serviceNeeds
     };
 
     try {
-      const response = await fetch("/api/bookings", {
+      const response = await fetch(bookingEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -189,6 +201,10 @@ export function BookingForm() {
           rows={5}
           placeholder="Share cocktail ideas, timing, venue notes, or anything else we should know."
         />
+      </label>
+      <label className="honeypot" aria-hidden="true">
+        Leave this field empty
+        <input name="website" tabIndex={-1} autoComplete="off" />
       </label>
       <button className="button button-primary form-button" type="submit" disabled={status === "sending"}>
         <Send aria-hidden="true" size={18} />
